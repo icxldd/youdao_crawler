@@ -30,10 +30,12 @@
         {
             this.mtxtv1 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtv2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtv1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtv2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtv3 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +50,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txtv3);
             this.panel1.Controls.Add(this.txtv2);
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtv1);
             this.panel1.Controls.Add(this.label1);
@@ -58,6 +62,23 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1327, 444);
             this.panel1.TabIndex = 1;
+            // 
+            // txtv2
+            // 
+            this.txtv2.Location = new System.Drawing.Point(299, 6);
+            this.txtv2.Name = "txtv2";
+            this.txtv2.Size = new System.Drawing.Size(100, 21);
+            this.txtv2.TabIndex = 2;
+            this.txtv2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtv2_KeyDown);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(201, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(101, 12);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "中转英翻译 内容:";
             // 
             // txtv1
             // 
@@ -76,22 +97,22 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "注释1 内容:";
             // 
-            // label2
+            // label3
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(201, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 12);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "中转英翻译 内容:";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(417, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(101, 12);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "中转英翻译 内容:";
             // 
-            // txtv2
+            // txtv3
             // 
-            this.txtv2.Location = new System.Drawing.Point(299, 6);
-            this.txtv2.Name = "txtv2";
-            this.txtv2.Size = new System.Drawing.Size(100, 21);
-            this.txtv2.TabIndex = 2;
-            this.txtv2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtv2_KeyDown);
+            this.txtv3.Location = new System.Drawing.Point(515, 6);
+            this.txtv3.Name = "txtv3";
+            this.txtv3.Size = new System.Drawing.Size(100, 21);
+            this.txtv3.TabIndex = 2;
+            this.txtv3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtv3_KeyDown);
             // 
             // Form1
             // 
@@ -115,6 +136,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtv2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtv3;
+        private System.Windows.Forms.Label label3;
     }
 }
 

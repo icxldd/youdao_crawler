@@ -1,0 +1,10 @@
+F:\GitHub\-\开发助手\bin\Release\开发助手.exe.config
+F:\GitHub\-\开发助手\bin\Release\开发助手.exe
+F:\GitHub\-\开发助手\bin\Release\开发助手.pdb
+F:\GitHub\-\开发助手\bin\Release\Newtonsoft.Json.dll
+F:\GitHub\-\开发助手\obj\Release\开发助手.csprojResolveAssemblyReference.cache
+F:\GitHub\-\开发助手\obj\Release\开发助手.Form1.resources
+F:\GitHub\-\开发助手\obj\Release\开发助手.Properties.Resources.resources
+F:\GitHub\-\开发助手\obj\Release\开发助手.csproj.GenerateResource.Cache
+F:\GitHub\-\开发助手\obj\Release\开发助手.exe
+F:\GitHub\-\开发助手\obj\Release\开发助手.pdb

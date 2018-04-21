@@ -40,13 +40,28 @@ namespace 开发助手
             {
 
                 Core pV1 = new Core();
-
                 string v1 = pV1._get(txtv2.Text);
-
+                mtxtv1.Text = v1;
 
 
                 Clipboard.SetDataObject(v1, true);
             }
+        }
+
+        private void txtv3_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyValue == 13)
+            {
+
+                Core pV1 = new Core();
+                string v1 = pV1._get_2(txtv3.Text);
+                mtxtv1.Text = v1;
+
+
+                Clipboard.SetDataObject(v1, true);
+            }
+
         }
     }
 }

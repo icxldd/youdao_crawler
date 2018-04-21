@@ -11,6 +11,8 @@ using System.Web;
 using 开发助手.HTTP;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using 开发助手._Stream;
+using System.Text.RegularExpressions;
 namespace 开发助手.YOUDAO
 {
     public class Core
@@ -37,6 +39,7 @@ namespace 开发助手.YOUDAO
         //需要翻译的中文
         //1.获取cookie
         //2.获取翻译值
+        //3.保存音频文件
         public string _get(string a1)
         {
             HttpHelper vv1 = new HttpHelper();
@@ -44,7 +47,7 @@ namespace 开发助手.YOUDAO
             string v1 = "http://fanyi.youdao.com/";
             vv1.HttpVisit(v1);
             /****************************************************************************************************2*********************************************************************************************************/
-            string v2_1 = HttpUtility.UrlEncode(a1).ToUpper();//i
+            string v2_1 = HttpUtility.UrlEncode(a1).Replace("+", "%20").ToUpper();//i
             string v2_2 = "fanyideskweb";//client
             string v2_3 = _getArg_r();//salt
             string v2_4 = _getArg_o(a1, v2_2, v2_3);
@@ -54,12 +57,65 @@ namespace 开发助手.YOUDAO
             string v2 = "http://fanyi.youdao.com/translate_o?smartresult=dict&smartresult=rule";
             string v2_r = vv1.HttpVisit(v2, true, v2_6).Html;
             string v2_rr = _getStr(v2_r);
+            /****************************************************************************************************3*********************************************************************************************************/
+            string v3 = string.Format("http://tts.youdao.com/fanyivoice?word={0}&le=eng&keyfrom=speaker-target ", HttpUtility.UrlEncode(v2_rr).Replace("+", "%20"));
+            string v3_2 = Application.StartupPath + "\\data\\" + string.Format("{0}", _getfileName(v2_rr)) + ".wav";
+
+            _Stream.Helper.HttpDownload(v3, v3_2);
+
+
+            return v2_rr;
+        }
+        public string _get_2(string a1)
+        {
+            HttpHelper vv1 = new HttpHelper();
+            /****************************************************************************************************1*********************************************************************************************************/
+            string v1 = "http://fanyi.youdao.com/";
+            vv1.HttpVisit(v1);
+            /****************************************************************************************************2*********************************************************************************************************/
+            string v2_1 = HttpUtility.UrlEncode(a1).Replace("+", "%20");//i
+            string v2_2 = "fanyideskweb";//client
+            string v2_3 = _getArg_r();//salt
+            string v2_4 = _getArg_o(a1, v2_2, v2_3);
+            string v2_5 = "fanyi.web";
+
+            string v2_6 = string.Format("i={0}&from=AUTO&to=AUTO&smartresult=dict&client={1}&salt={2}&sign={3}&doctype=json&version=2.1&keyfrom={4}&action=FY_BY_CLICKBUTTION&typoResult=false", v2_1, v2_2, v2_3, v2_4, v2_5);
+            string v2 = "http://fanyi.youdao.com/translate_o?smartresult=dict&smartresult=rule";
+            string v2_r = vv1.HttpVisit(v2, true, v2_6).Html;
+            string v2_rr = _getStr_2(v2_r);
+
+
 
 
 
             return v2_rr;
         }
+
+       
+
         private string _getStr(string a1)
+        {
+            /*{"translateResult":[[{"tgt":"acutely","src":"艹"}]],"errorCode":0,"type":"zh-CHS2en"}*/
+            JObject o = JObject.Parse(a1);
+
+            string v1 = o["translateResult"][0][0]["tgt"] != null ? o["translateResult"][0][0]["tgt"].ToString() : (o["smartResult"]["entries"][1]).ToString();
+
+            return v1;
+
+        }
+        private string _getfileName(string a1)
+        {
+            Regex r = new Regex(@"[a-zA-Z]+");
+            Match m = r.Match(a1);
+            string v1 = string.Empty;
+            while (m.Success)
+            {
+                v1 += m.Value;
+                m = m.NextMatch();
+            }
+            return v1;
+        }
+        private string _getStr_2(string a1)
         {
             /*{"translateResult":[[{"tgt":"acutely","src":"艹"}]],"errorCode":0,"type":"zh-CHS2en"}*/
             JObject o = JObject.Parse(a1);
