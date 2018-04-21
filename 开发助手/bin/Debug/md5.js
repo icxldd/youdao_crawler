@@ -1,5 +1,4 @@
 
-
 var n = function(e, t) {
         return e << t | e >>> 32 - t
     }
@@ -178,3 +177,31 @@ var p = function(e) {
                 v = r(v, a);
             return (p(s) + p(m) + p(g) + p(v)).toLowerCase()
         }
+
+
+var getTime = function()
+{
+	return  "" + ((new Date).getTime() + parseInt(10 * Math.random(), 10));
+}
+
+
+
+var getCookie_1 = function(a)
+{
+
+ for (var b = document.cookie, c = a + "=", d = b.length, e = 0; d > e; ) {
+            var f = e + c.length;
+            if (b.substring(e, f) == c) {
+                var g = b.indexOf(";", f);
+                return -1 == g && (g = d),
+                unescape(b.substring(f, g))
+            }
+            if (e = b.indexOf(" ", e) + 1,
+            0 == e)
+                break
+        }
+        return -1
+
+}
+
+
