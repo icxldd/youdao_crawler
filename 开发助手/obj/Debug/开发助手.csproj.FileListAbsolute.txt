@@ -1,0 +1,9 @@
+d:\documents\visual studio 2013\Projects\开发助手\开发助手\bin\Debug\开发助手.exe.config
+d:\documents\visual studio 2013\Projects\开发助手\开发助手\bin\Debug\开发助手.exe
+d:\documents\visual studio 2013\Projects\开发助手\开发助手\bin\Debug\开发助手.pdb
+d:\documents\visual studio 2013\Projects\开发助手\开发助手\obj\Debug\开发助手.csprojResolveAssemblyReference.cache
+d:\documents\visual studio 2013\Projects\开发助手\开发助手\obj\Debug\开发助手.Form1.resources
+d:\documents\visual studio 2013\Projects\开发助手\开发助手\obj\Debug\开发助手.Properties.Resources.resources
+d:\documents\visual studio 2013\Projects\开发助手\开发助手\obj\Debug\开发助手.csproj.GenerateResource.Cache
+d:\documents\visual studio 2013\Projects\开发助手\开发助手\obj\Debug\开发助手.exe
+d:\documents\visual studio 2013\Projects\开发助手\开发助手\obj\Debug\开发助手.pdb
